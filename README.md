@@ -52,9 +52,10 @@ So, create database and user and give him privileges to new database:
 
 ```
 sudo mariadb -u root
-CREATE DATABASE new_db_name COLLATE 'utf8_general_ci';
-CREATE USER new_db_user IDENTIFIED BY 'some_password';
-GRANT ALL privileges ON new_db_name .* TO new_db_user;
+CREATE DATABASE new_db_name CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+#CREATE USER new_db_user IDENTIFIED BY 'some_password';
+GRANT ALL privileges ON new_db_name.* TO new_db_user IDENTIFIED BY 'some_password';
+FLUSH PRIVILEGES;
 ```
 
 ## Apache, PHP
